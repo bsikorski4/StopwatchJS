@@ -70,7 +70,6 @@ const clearStuff = () => {
 
 }
 
-
 startBtn.addEventListener('click', handleStart);
 pauseBtn.addEventListener('click', handlePause);
 stopBtn.addEventListener('click', handleStop);
