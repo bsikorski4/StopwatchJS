@@ -51,8 +51,27 @@ handleStop = () => {
 
     time.innerHTML = `Ostatni czas: ${stopwatch.textContent}`
 
+    clearStuff()
 }
+
+const handleReset = () => {
+    clearStuff()
+    time.style.visibility = 'hidden';
+    timesArr = [];
+
+}
+
+const clearStuff = () => {
+    clearInterval(countTime);
+    stopwatch.textContent = '0:00';
+    timeList.textContent = '';
+    seconds = 0;
+    minutes = 0;
+
+}
+
 
 startBtn.addEventListener('click', handleStart);
 pauseBtn.addEventListener('click', handlePause);
 stopBtn.addEventListener('click', handleStop);
+resetBtn.addEventListener('click', handleReset);
