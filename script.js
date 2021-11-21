@@ -37,4 +37,22 @@ const handleStart = () => {
     }, 1000)
 }
 
+const handlePause = () => {
+    clearInterval(countTime);
+}
+
+handleStop = () => {
+
+    if (stopwatch.textContent !== '0:00') {
+        time.style.visibility = 'visible';
+        timesArr.push(stopwatch.textContent)
+        console.log(timesArr)
+    }
+
+    time.innerHTML = `Ostatni czas: ${stopwatch.textContent}`
+
+}
+
 startBtn.addEventListener('click', handleStart);
+pauseBtn.addEventListener('click', handlePause);
+stopBtn.addEventListener('click', handleStop);
