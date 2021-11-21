@@ -16,3 +16,25 @@ let minutes = 0;
 let seconds = 0;
 
 let timesArr = [];
+
+const handleStart = () => {
+    clearInterval(countTime)
+
+    countTime = setInterval(() => {
+
+        if (seconds < 9) {
+            seconds++;
+            stopwatch.textContent = `${minutes}:0${seconds}`
+        } else if (seconds >= 9 && seconds < 59) {
+            seconds++;
+            stopwatch.textContent = `${minutes}:${seconds}`
+        } else {
+            minutes++;
+            seconds = 0;
+            stopwatch.textContent = `${minutes}:00`
+        }
+
+    }, 1000)
+}
+
+startBtn.addEventListener('click', handleStart);
