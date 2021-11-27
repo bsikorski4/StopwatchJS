@@ -1,15 +1,24 @@
-const startBtn = document.querySelector('.start')
-const pauseBtn = document.querySelector('.pause')
-const stopBtn = document.querySelector('.stop')
-const resetBtn = document.querySelector('.reset')
-const historyBtn = document.querySelector('.history')
-const stopwatch = document.querySelector('.stopwatch')
-const time = document.querySelector('.time')
-const timeList = document.querySelector('.time-list')
+const startBtn = document.querySelector('.start');
+const pauseBtn = document.querySelector('.pause');
+const stopBtn = document.querySelector('.stop');
+const resetBtn = document.querySelector('.reset');
+const historyBtn = document.querySelector('.history');
+const stopwatch = document.querySelector('.stopwatch');
+const time = document.querySelector('.time');
+const timeList = document.querySelector('.time-list');
 
-const infoBtn = document.querySelector('.info')
-const modalShadow = document.querySelector('.modal-shadow')
-const closeModalBtn = document.querySelector('.close')
+
+const infoBtn = document.querySelector('.fa-question');
+const modalShadow = document.querySelector('.modal-shadow');
+const closeModalBtn = document.querySelector('.close');
+
+const colorBtn = document.querySelector('.fa-paint-brush');
+const colorPanel = document.querySelector('.colors');
+const colorOne = document.querySelector('.one');
+const colorTwo = document.querySelector('.two');
+const colorThree = document.querySelector('.three');
+const colorFour = document.querySelector('.four');
+let root = document.documentElement;
 
 let countTime;
 let minutes = 0;
@@ -102,4 +111,34 @@ resetBtn.addEventListener('click', handleReset);
 historyBtn.addEventListener('click', showHistory)
 infoBtn.addEventListener('click', showModal);
 closeModalBtn.addEventListener('click', showModal);
-window.addEventListener('click', e => e.target === modalShadow ? showModal() : false)
+window.addEventListener('click', e => e.target === modalShadow ? showModal() : false);
+
+colorBtn.addEventListener('click', () => {
+    colorPanel.classList.toggle('show-colors');
+    if (colorPanel.style.display === 'flex') {
+        colorPanel.style.display = 'none'
+    } else {
+        colorPanel.style.display = 'flex'
+    }
+})
+
+
+colorOne.addEventListener('click', () => {
+    root.style.setProperty('--first-color', '#3694e7')
+    root.style.setProperty('--background-main', '#70c3fc')
+});
+
+colorTwo.addEventListener('click', () => {
+    root.style.setProperty('--first-color', '#1ed99d')
+    root.style.setProperty('--background-main', '#a0f1cc')
+});
+
+colorThree.addEventListener('click', () => {
+    root.style.setProperty('--first-color', '#f191e1')
+    root.style.setProperty('--background-main', '#f184e7')
+});
+
+colorFour.addEventListener('click', () => {
+    root.style.setProperty('--first-color', '#efb012')
+    root.style.setProperty('--background-main', '#efc988')
+});
